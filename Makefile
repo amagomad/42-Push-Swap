@@ -1,22 +1,25 @@
 CC = gcc
-Flags = -Wall -Wextra -Werror
-SRC = push_swap.c
-SRC_P = ft_printf/ft_printf.c ft_printf/ft_putchar_fd.c ft_printf/ft_putstr_fd.c ft_printf/ft_puthex_fd.c ft_printf/ft_putptr_fd.c ft_printf/ft_uputnbr_fd.c ft_printf/ft_putnbr_fd.c
+CFLAGS = -Wall -Wextra -Werror
+SRC = push_swap.c rules/pushswap_rules.c rules/pushswap_rules_2.c rules/pushswap_rules_3.c parsing.c
+
 OBJ = $(SRC:.c=.o)
-OBJS = $(SRC_P:.c=.o)
+
 NAME = pipex
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(OBJ)
+libft/libft.a:
+	make -C libft
+
+$(NAME): libft/libft.a $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(OBJS)
-	
+	rm -f $(OBJ)
+
 fclean: clean
 	rm -f $(NAME)
 

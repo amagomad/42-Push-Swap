@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 15:21:59 by amagomad         ###   ########.fr       */
+/*   Created: 2024/05/03 17:25:55 by amagomad          #+#    #+#             */
+/*   Updated: 2024/05/16 17:48:04 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-// void    push_swap(int *a, int *b)
-// {
-    
-// }
+int	ft_lstsize(t_list *lst)
+{
+	int	a;
 
-// int     main(int ac, char **av)
-// {
-
-// }
+	a = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		a++;
+	}
+	return (a);
+}

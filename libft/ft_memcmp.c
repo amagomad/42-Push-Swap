@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 15:21:59 by amagomad         ###   ########.fr       */
+/*   Created: 2024/04/24 03:50:27 by amagomad          #+#    #+#             */
+/*   Updated: 2024/05/16 17:48:08 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-// void    push_swap(int *a, int *b)
-// {
-    
-// }
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t				i;
+	const unsigned char	*c1;
+	const unsigned char	*c2;
 
-// int     main(int ac, char **av)
-// {
-
-// }
+	i = 0;
+	c1 = (const unsigned char *)s1;
+	c2 = (const unsigned char *)s2;
+	while (i < n)
+	{
+		if (c1[i] != c2[i])
+		{
+			if (c1[i] > c2[i])
+				return (1);
+			else
+				return (-1);
+		}
+		i++;
+	}
+	return (0);
+}

@@ -6,11 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:31:49 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/08 20:04:08 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:14:06 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swap_a(t_pushswap* a)
 {
@@ -71,18 +71,3 @@ void    push_b(t_pushswap* a, t_pushswap* b)
     first_a->next = b->head;
     b->head = first_a;
 }
-
-// t_node*    new_node(int data)
-// {
-//     t_node* new;
-
-//     new = malloc(sizeof(t_node));
-//     if (new == NULL)
-//     {
-//         ft_printf("Error");
-//         return ;
-//     }
-//     new->data = data;
-//     new->next = NULL;
-//     return (new);
-// }

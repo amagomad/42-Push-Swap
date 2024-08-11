@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 15:21:59 by amagomad         ###   ########.fr       */
+/*   Created: 2024/04/29 20:35:00 by amagomad          #+#    #+#             */
+/*   Updated: 2024/04/30 19:20:52 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-// void    push_swap(int *a, int *b)
-// {
-    
-// }
-
-// int     main(int ac, char **av)
-// {
-
-// }
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

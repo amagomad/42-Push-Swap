@@ -6,11 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 20:02:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/08 20:03:34 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/09 12:58:30 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void    rotate_a(t_pushswap* a)
 {
@@ -48,42 +48,4 @@ void    rr(t_pushswap* a, t_pushswap* b)
 {
     rotate_a(a);
     rotate_b(b);
-}
-
-void    reverse_rotate_a(t_pushswap* a)
-{
-    t_node* last;
-    t_node* second_last;
-
-    if (a == NULL || a->head == NULL || a->head->next == NULL)
-        return ;
-    last = a->head;
-    second_last = NULL;
-    while (last->next != NULL)
-    {
-        second_last = last;
-        last = last->next;
-    }
-    last->next = a->head;
-    a->head = last;
-    second_last->next = NULL;
-}
-
-void    reverse_rotate_b(t_pushswap* b)
-{
-    t_node* last;
-    t_node *second_last;
-
-    if (b == NULL || b->head == NULL || b->head->next == NULL)
-        return ;
-    last = b->head;
-    second_last = NULL;
-    while (last->next != NULL)
-    {
-        second_last = last;
-        last = last->next;
-    }
-    last->next = b->head;
-    b->head = last;
-    second_last->next = NULL;
 }
