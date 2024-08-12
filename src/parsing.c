@@ -6,11 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:23:40 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 15:37:16 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:38:28 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int     int_checker(const char  *str)
 {

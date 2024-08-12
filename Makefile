@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRC = push_swap.c rules/pushswap_rules.c rules/pushswap_rules_2.c rules/pushswap_rules_3.c parsing.c
+SRC = src/push_swap.c src/rules/pushswap_rules.c src/rules/pushswap_rules_2.c src/rules/pushswap_rules_3.c src/parsing.c
 
 OBJ = $(SRC:.c=.o)
 

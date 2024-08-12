@@ -6,11 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:31:49 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 14:14:06 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/12 13:14:30 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	swap_a(t_pushswap* a)
 {
