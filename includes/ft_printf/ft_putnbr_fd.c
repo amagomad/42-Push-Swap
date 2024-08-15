@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/15 15:58:35 by amagomad         ###   ########.fr       */
+/*   Created: 2024/04/29 21:20:00 by amagomad          #+#    #+#             */
+/*   Updated: 2024/08/09 15:26:25 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-// void    push_swap()
-// {
-    
-// }
-
-int     main(int ac, char **av)
+int	putnbr_fd(int n, int fd)
 {
-    t_pushswap *a;
+	int	count;
 
-    parsing(ac, a);
-    ft_sort_five(a);
+	count = 0;
+	if (n == -2147483648)
+	{
+		count = putstr_fd("-2147483648", fd);
+		return (count);
+	}
+	else
+	{
+		if (n < 0)
+		{
+			count += putchar_fd('-', fd);
+			n = -n;
+		}
+		if (n > 9)
+		{
+			count += putnbr_fd(n / 10, fd);
+		}
+		count += putchar_fd((n % 10 + '0'), fd);
+	}
+	return (count);
 }

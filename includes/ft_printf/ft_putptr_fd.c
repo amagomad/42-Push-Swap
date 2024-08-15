@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/15 15:58:35 by amagomad         ###   ########.fr       */
+/*   Created: 2024/05/16 22:08:35 by amagomad          #+#    #+#             */
+/*   Updated: 2024/08/09 15:26:37 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-// void    push_swap()
-// {
-    
-// }
-
-int     main(int ac, char **av)
+int	putptr_fd(void *ptr, int fd)
 {
-    t_pushswap *a;
+	unsigned long long	addr;
+	int					count;
 
-    parsing(ac, a);
-    ft_sort_five(a);
+	addr = (unsigned long long)ptr;
+	count = 0;
+	if (!ptr)
+	{
+		count += putstr_fd("(nil)", fd);
+		return (count);
+	}
+	count += putstr_fd("0x", fd);
+	count += puthex_fd(addr, fd, 0);
+	return (count);
 }

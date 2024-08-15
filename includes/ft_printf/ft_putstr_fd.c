@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/15 15:58:35 by amagomad         ###   ########.fr       */
+/*   Created: 2024/04/29 21:09:45 by amagomad          #+#    #+#             */
+/*   Updated: 2024/08/09 15:21:16 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ft_printf.h"
 
-// void    push_swap()
-// {
-    
-// }
-
-int     main(int ac, char **av)
+int	putstr_fd(char *s, int fd)
 {
-    t_pushswap *a;
+	int	count;
 
-    parsing(ac, a);
-    ft_sort_five(a);
+	count = 0;
+	if (!s)
+	{
+		s = "(null)";
+	}
+	while (*s)
+	{
+		write(fd, s++, 1);
+		count++;
+	}
+	return (count);
 }

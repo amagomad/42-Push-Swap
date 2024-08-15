@@ -6,45 +6,46 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:23:40 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/12 16:38:28 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/14 11:13:23 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int     int_checker(const char  *str)
+void     int_checker(t_pushswap* a)
 {
     int     i;
+    char    *str;
+    t_node* current;
 
     i = 0;
-    while (str[i] != '\0')
+    current = a;
+    while (current->next != NULL)
     {
-        if (ft_isdigit(str[i]) == 0)
+        i = ft_isdigit(current->data);
+        if (i == 0)
         {
-            ft_printf("ERROR : Argument '%s' is not an integer\n", str);
+            ft_printf("ERROR : Argument '%s' is not an integer\n", current->data);
             exit(EXIT_FAILURE);
         }
-        i++;
+        current = current->next;
     }
-    if (i == 0)
-    {
-        ft_printf("ERROR : Argument '%s' is empty", str);
-        exit(EXIT_FAILURE);
-    }
-    return (0);
 }
 
-int     args_checker(int ac)
+void     args_checker(int ac)
 {
-    if (ac < 2)
+    if (ac < 4)
     {
-        ft_printf("ERROR : At least 1 argument is required\n");
+        ft_printf("ERROR : At least 3 argument is required\n");
         exit(EXIT_FAILURE);
     }
-    return (0);
 }
 
-
+void    parsing(int ac, t_pushswap* a)
+{
+    args_checker(ac);
+    int_checker(a);
+}
 
 // t_node*    new_node(int data)
 // {

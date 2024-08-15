@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/15 15:58:35 by amagomad         ###   ########.fr       */
+/*   Created: 2024/05/16 15:00:10 by amagomad          #+#    #+#             */
+/*   Updated: 2024/08/09 15:21:44 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-// void    push_swap()
-// {
-    
-// }
+# include <fcntl.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
 
-int     main(int ac, char **av)
-{
-    t_pushswap *a;
+int	ft_printf(const char *format, ...);
+int	putchar_fd(char c, int fd);
+int	putstr_fd(char *s, int fd);
+int	putnbr_fd(int n, int fd);
+int	uputnbr_fd(unsigned int n, int fd);
+int	puthex_fd(unsigned long long n, int fd, int uppercase);
+int	putptr_fd(void *ptr, int fd);
 
-    parsing(ac, a);
-    ft_sort_five(a);
-}
+#endif
