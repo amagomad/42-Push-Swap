@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_rules_2.c                                 :+:      :+:    :+:   */
+/*   ps_rules_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 20:02:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/12 13:14:21 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/16 16:52:21 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    rotate_a(t_pushswap* a)
+void    ra(t_pushswap* ps)
 {
-    t_node* current;
-    t_node* first;
+    t_node  *current;
+    t_node  *first;
 
-    if (a == NULL || a->head == NULL || a->head->next == NULL)
+    if (ps == NULL || ps->a == NULL || ps->a->next == NULL)
         return ;
-    first = a->head;
-    current = a->head;
+    first = ps->a;
+    current = ps->a;
     while (current->next != NULL)
         current = current->next;
-    a->head = first->next;
+    ps->a = first->next;
     current->next = first;
     first->next = NULL;
 }
 
-void    rotate_b(t_pushswap* b)
+void    rb(t_pushswap* ps)
 {
     t_node* first;
     t_node* current;
 
-    if (b == NULL || b->head == NULL || b->head->next == NULL)
+    if (ps == NULL || ps->b == NULL || ps->b->next == NULL)
         return ;
-    first = b->head;
-    current = b->head;
+    first = ps->b;
+    current = ps->b;
     while (current->next != NULL)
         current = current->next;
-    b->head = first->next;
+    ps->b = first->next;
     current->next = first;
     first->next = NULL;
 }
 
-void    rr(t_pushswap* a, t_pushswap* b)
+void    rr(t_pushswap *ps)
 {
-    rotate_a(a);
-    rotate_b(b);
+    rotate_a(ps);
+    rotate_b(ps);
 }

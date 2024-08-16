@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_rules_3.c                                 :+:      :+:    :+:   */
+/*   ps_rules_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:57:58 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/12 13:14:25 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/16 16:52:13 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    reverse_rotate_a(t_pushswap* a)
+void rra(t_pushswap* ps)
 {
     t_node* last;
     t_node* second_last;
 
-    if (a == NULL || a->head == NULL || a->head->next == NULL)
+    if (ps == NULL || ps->a == NULL || ps->a->next == NULL)
         return ;
-    last = a->head;
+    last = ps->a;
     second_last = NULL;
     while (last->next != NULL)
     {
         second_last = last;
         last = last->next;
     }
-    last->next = a->head;
-    a->head = last;
+    last->next = ps->a;
+    ps->a = last;
     second_last->next = NULL;
 }
 
-void    reverse_rotate_b(t_pushswap* b)
+void    rrb(t_pushswap* ps)
 {
     t_node* last;
     t_node *second_last;
 
-    if (b == NULL || b->head == NULL || b->head->next == NULL)
+    if (ps == NULL || ps->b == NULL || ps->b->next == NULL)
         return ;
-    last = b->head;
+    last = ps->b;
     second_last = NULL;
     while (last->next != NULL)
     {
         second_last = last;
         last = last->next;
     }
-    last->next = b->head;
-    b->head = last;
+    last->next = ps->b;
+    ps->b = last;
     second_last->next = NULL;
 }
 
-void    rrr(t_pushswap* a, t_pushswap* b)
+void    rrr(t_pushswap *ps)
 {
-    reverse_rotate_a(a);
-    reverse_rotate_b(b);
+    reverse_rotate_a(ps);
+    reverse_rotate_b(ps);
 }

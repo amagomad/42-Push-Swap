@@ -1,73 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_rules.c                                   :+:      :+:    :+:   */
+/*   ps_rules.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:31:49 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/12 13:14:30 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/16 16:52:02 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	swap_a(t_pushswap* a)
+void	sa(t_pushswap *ps)
 {
-    t_node* first;
-    t_node* second;
+    t_node  *first;
+    t_node  *second;
     int     tmp;
 
-    if (a == NULL || a->head == NULL || a->head->next == NULL)
+    if (ps == NULL || ps->a == NULL || ps->a->next == NULL)
         return ;
-    first = a->head;
-    second = a->head->next;
+    first = ps->a;
+    second = ps->a->next;
     tmp = first->data;
     first->data = second->data;
     second->data = tmp;
 }
 
-void    swap_b(t_pushswap* b)
+void    sb(t_pushswap* ps)
 {
-    t_node*     first;
-    t_node*     second;
+    t_node      *first;
+    t_node      *second;
     int         tmp;
 
-    if (b == NULL || b->head == NULL || b->head->next == NULL)
+    if (ps == NULL || ps->b == NULL || ps->b->next == NULL)
         return ;
-    first = b->head;
-    second = b->head->next;
+    first = ps->b;
+    second = ps->b->next;
     tmp = first->data;
     first->data = second->data;
     second->data = tmp;
 }
 
-void    ss(t_pushswap* a, t_pushswap* b)
+void    ss(t_pushswap *ps)
 {
-    swap_a(a);
-    swap_b(b);
+    swap_a(ps);
+    swap_b(ps);
 }
 
-void    push_a(t_pushswap* a, t_pushswap* b)
+void pa(t_pushswap* ps)
 {
-    t_node* first_b;
+    t_node  *first_b;
 
-    if (b == NULL || b->head == NULL)
+    if (ps == NULL || ps->b == NULL)
         return ;
-    first_b = b->head;
-    b->head = first_b->next;
-    first_b->next = a->head;
-    a->head = first_b;
+    first_b = ps->b;
+    ps->b = first_b->next;
+    first_b->next = ps->a;
+    ps->a = first_b;
 }
 
-void    push_b(t_pushswap* a, t_pushswap* b)
+void    pb(t_pushswap *ps)
 {
-    t_node*     first_a;
+    t_node  *first_a;
 
-    if (a == NULL || a->head == NULL)
+    if (ps == NULL || ps->b == NULL)
         return ;
-    first_a = a->head;
-    a->head = first_a->next;
-    first_a->next = b->head;
-    b->head = first_a;
+    first_a = ps->a;
+    ps->a = first_a->next;
+    first_a->next = ps->b;
+    ps->b = first_a;
 }
