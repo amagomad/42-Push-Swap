@@ -6,11 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:31:49 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/16 16:52:02 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:33:53 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sa(t_pushswap *ps)
 {
@@ -44,8 +44,8 @@ void    sb(t_pushswap* ps)
 
 void    ss(t_pushswap *ps)
 {
-    swap_a(ps);
-    swap_b(ps);
+    sa(ps);
+    sb(ps);
 }
 
 void pa(t_pushswap* ps)
@@ -64,7 +64,7 @@ void    pb(t_pushswap *ps)
 {
     t_node  *first_a;
 
-    if (ps == NULL || ps->b == NULL)
+    if (ps == NULL || ps->a == NULL)
         return ;
     first_a = ps->a;
     ps->a = first_a->next;

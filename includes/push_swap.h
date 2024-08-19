@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/16 16:55:10 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:32:02 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_pushswap
     t_node  *b;
 } t_pushswap;
 
-# include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <stdarg.h>
@@ -52,17 +51,26 @@ void    rrr(t_pushswap *ps);
 
 //parsing :
 
-int     int_checker(const char  *str);
-int     args_checker(int ac);
+void    int_checker(t_pushswap *a);
+void    args_checker(int ac);
 void    parsing(int ac, t_pushswap* a);
 
 //sort :
 
-void    ft_sort_five(t_pushswap *ps);
-void    sort_three(t_node **a);
+void    sort_five(t_pushswap *ps);
+void    sort_three(t_pushswap *ps);
 
 //utils :
 
-int     find_min_pos(t_node *a);
+int         find_min_position(t_node *a);
+int         ft_isdigit(int c);
+t_node      *new_node(int data);
+t_pushswap  *init_pushswap(int ac, char **av);
+void        add_node_end(t_node **head, int data);
+
+//main :
+
+void    push_swap(int ac, t_pushswap *ps);
+void    print_list(t_node *head);
 
 #endif

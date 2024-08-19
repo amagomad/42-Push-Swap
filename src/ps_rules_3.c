@@ -6,19 +6,19 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:57:58 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/16 16:52:13 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:34:22 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void rra(t_pushswap* ps)
+void rra(t_pushswap *ps)
 {
-    t_node* last;
-    t_node* second_last;
+    t_node *last;
+    t_node *second_last;
 
     if (ps == NULL || ps->a == NULL || ps->a->next == NULL)
-        return ;
+        return;
     last = ps->a;
     second_last = NULL;
     while (last->next != NULL)
@@ -31,13 +31,13 @@ void rra(t_pushswap* ps)
     second_last->next = NULL;
 }
 
-void    rrb(t_pushswap* ps)
+void rrb(t_pushswap *ps)
 {
-    t_node* last;
+    t_node *last;
     t_node *second_last;
 
     if (ps == NULL || ps->b == NULL || ps->b->next == NULL)
-        return ;
+        return;
     last = ps->b;
     second_last = NULL;
     while (last->next != NULL)
@@ -52,6 +52,6 @@ void    rrb(t_pushswap* ps)
 
 void    rrr(t_pushswap *ps)
 {
-    reverse_rotate_a(ps);
-    reverse_rotate_b(ps);
+    rra(ps);
+    rrb(ps);
 }

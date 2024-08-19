@@ -6,11 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 20:02:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/16 16:52:21 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/17 13:11:42 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void    ra(t_pushswap* ps)
 {
@@ -46,6 +46,6 @@ void    rb(t_pushswap* ps)
 
 void    rr(t_pushswap *ps)
 {
-    rotate_a(ps);
-    rotate_b(ps);
+    ra(ps);
+    rb(ps);
 }

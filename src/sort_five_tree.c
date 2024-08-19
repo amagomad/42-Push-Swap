@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five&tree.c                                   :+:      :+:    :+:   */
+/*   sort_five_tree.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:37:29 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/16 16:58:45 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:35:17 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,15 @@ void sort_three(t_pushswap *ps)
 }
 
 
-void    sort_five(t_pushswap *ps)
+void sort_five(t_pushswap *ps)
 {
     int     min_pos;
     int     i;
 
     i = 0;
-    min_pos = 0;
     while (i < 2)
     {
-        find_min_pos(ps->a);
+        min_pos = find_min_position(ps->a);
         if (min_pos > 0)
         {
             while (min_pos > 0)
@@ -63,7 +62,20 @@ void    sort_five(t_pushswap *ps)
         pb(ps);
         i++;
     }
-    sort_three(ps->a);
+    sort_three(ps);
     pa(ps);
     pa(ps);
 }
+
+
+// void    sort(t_pushswap *ps)
+// {
+//     t_node *current;
+
+//     current = ps;
+//     while (current)
+//     {
+//         find_min_pos(ps->a);
+        
+//     }
+// }

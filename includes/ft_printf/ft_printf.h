@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:00:10 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 15:21:44 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:02:06 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
+# include "../push_swap.h"
 
 int	ft_printf(const char *format, ...);
 int	putchar_fd(char c, int fd);
