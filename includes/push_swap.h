@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/19 18:32:02 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:50:55 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void    rrr(t_pushswap *ps);
 
 //parsing :
 
-void    int_checker(t_pushswap *a);
 void    args_checker(int ac);
-void    parsing(int ac, t_pushswap* a);
+void    parsing(int ac);
 
 //sort :
 
-void    sort_five(t_pushswap *ps);
 void    sort_three(t_pushswap *ps);
+void    sort_four(t_pushswap *ps);
+void    sort_five(t_pushswap *ps);
 
 //utils :
 
@@ -68,9 +68,11 @@ t_node      *new_node(int data);
 t_pushswap  *init_pushswap(int ac, char **av);
 void        add_node_end(t_node **head, int data);
 
+void        print_list(t_node *head);
+int         ft_atoi(const char *str);
+
 //main :
 
 void    push_swap(int ac, t_pushswap *ps);
-void    print_list(t_node *head);
 
 #endif

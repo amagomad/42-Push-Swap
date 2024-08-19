@@ -6,20 +6,11 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:23:40 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/19 18:35:01 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:53:07 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void int_checker(t_pushswap *ps)
-{
-    t_node *current;
-
-    current = ps->a;
-    while (current != NULL)
-        current = current->next;
-}
 
 void     args_checker(int ac)
 {
@@ -30,8 +21,25 @@ void     args_checker(int ac)
     }
 }
 
-void    parsing(int ac, t_pushswap *ps)
+void    int_max(int ac, char *z)
+{
+    int     i;
+
+    i = ft_atoi(z);
+    if (i > 2147483647)
+    {
+        ft_printf("ERROR : argument number %i is too big (int max)", ac);
+        exit(EXIT_FAILURE);
+    }
+    else if (i < -2147483648)
+    {
+        ft_printf("ERROR : argument number %i is too low (int min)", ac);
+        exit(EXIT_FAILURE);
+    }
+}
+
+void    parsing(int ac)
 {
     args_checker(ac);
-    int_checker(ps);
 }
+

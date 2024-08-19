@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 13:55:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/19 18:35:35 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:51:13 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ int     find_min_position(t_node *a)
     return (pos);
 }
 
-int	ft_isdigit(int c)
+int     ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-t_node *new_node(int data)
+t_node      *new_node(int data)
 {
     t_node  *node;
     
@@ -57,7 +57,7 @@ t_node *new_node(int data)
     return node;
 }
 
-t_pushswap *init_pushswap(int ac, char **av)
+t_pushswap  *init_pushswap(int ac, char **av)
 {
     t_pushswap  *ps;
     
@@ -73,14 +73,14 @@ t_pushswap *init_pushswap(int ac, char **av)
     i = 1;
     while (i < ac)
     {
-        add_node_end(&ps->a, atoi(av[i]));
+        add_node_end(&ps->a, ft_atoi(av[i]));
         i++;
     }
 
     return ps;
 }
 
-void add_node_end(t_node **head, int data)
+void    add_node_end(t_node **head, int data)
 {
     t_node  *new; 
     t_node  *temp;
@@ -97,15 +97,4 @@ void add_node_end(t_node **head, int data)
     while (temp->next)
         temp = temp->next;
     temp->next = new;
-}
-
-void print_list(t_node *head)
-{
-    t_node *current = head;
-    while (current != NULL)
-    {
-        printf("%d -> ", current->data);
-        current = current->next;
-    }
-    printf("NULL\n");
 }

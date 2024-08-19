@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRC = src/push_swap.c src/ps_rules.c src/ps_rules_2.c src/ps_rules_3.c src/parsing.c src/ps_utils.c src/sort_five_tree.c 
+SRC = src/push_swap.c src/rules/ps_rules.c src/rules/ps_rules_2.c src/rules/ps_rules_3.c src/parsing.c src/ps_utils.c src/sort_five_tree.c 
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 
