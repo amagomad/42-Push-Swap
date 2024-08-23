@@ -52,6 +52,7 @@ void    rrr(t_pushswap *ps);
 //parsing :
 
 void    args_checker(int ac);
+int     int_max(int ac, char *z)
 void    parsing(int ac);
 
 //sort :
@@ -60,16 +61,19 @@ void    sort_three(t_pushswap *ps);
 void    sort_four(t_pushswap *ps);
 void    sort_five(t_pushswap *ps);
 
+//algo :
+
+
+
 //utils :
 
 int         find_min_position(t_node *a);
 int         ft_isdigit(int c);
+int         ft_atoi(const char *str);
+void        add_node_end(t_node **head, int data);
+void        print_list(t_node *head);
 t_node      *new_node(int data);
 t_pushswap  *init_pushswap(int ac, char **av);
-void        add_node_end(t_node **head, int data);
-
-void        print_list(t_node *head);
-int         ft_atoi(const char *str);
 
 //main :
 

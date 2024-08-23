@@ -21,25 +21,31 @@ void     args_checker(int ac)
     }
 }
 
-void    int_max(int ac, char *z)
+int    int_max(int ac, char *z)
 {
     int     i;
 
     i = ft_atoi(z);
     if (i > 2147483647)
     {
-        ft_printf("ERROR : argument number %i is too big (int max)", ac);
+        ft_printf("ERROR : no argument should be higher than 2147483647 (int max)");
         exit(EXIT_FAILURE);
     }
     else if (i < -2147483648)
     {
-        ft_printf("ERROR : argument number %i is too low (int min)", ac);
+        ft_printf("ERROR : no argument should be below -2147483648 (int min)");
         exit(EXIT_FAILURE);
     }
+    return (0);
 }
 
-void    parsing(int ac)
+void    parsing(int ac, char **av)
 {
+    int     i;
+
+    i = 0;
+    while (i < ac)
+        int_max(argv[i++]);
     args_checker(ac);
 }
 
