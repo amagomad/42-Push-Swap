@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-void rra(t_pushswap *ps)
+void    rra(t_pushswap *ps)
 {
     t_node *last;
     t_node *second_last;
@@ -26,12 +26,14 @@ void rra(t_pushswap *ps)
         second_last = last;
         last = last->next;
     }
+    if (second_last)
+        second_last->next = NULL;
     last->next = ps->a;
     ps->a = last;
-    second_last->next = NULL;
 }
 
-void rrb(t_pushswap *ps)
+
+void    rrb(t_pushswap *ps)
 {
     t_node *last;
     t_node *second_last;

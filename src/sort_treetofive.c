@@ -84,3 +84,41 @@ void	sort_five(t_pushswap *ps)
 	pa(ps);
 }
 
+void	sort_small(int ac, t_pushswap *ps)
+{
+	if (ac - 1 == 3)
+        sort_three(ps);
+    else if (ac - 1 == 4)
+        sort_four(ps);
+    else if (ac - 1 == 5)
+        sort_five(ps);
+}
+
+void sort_with_selection(t_pushswap *ps)
+{
+    int size;
+    int min_pos;
+    int i;
+
+    size = get_stack_size(ps->a);
+    while (size > 0)
+    {
+        min_pos = find_min_position(ps->a);
+        if (min_pos <= size / 2)
+        {
+            for (i = 0; i < min_pos; i++)
+                ra(ps);
+        }
+        else
+        {
+            for (i = 0; i < size - min_pos; i++)
+                rra(ps);
+        }
+        pb(ps);
+        size--;
+    }
+    while (ps->b)
+    {
+        pa(ps);
+    }
+}

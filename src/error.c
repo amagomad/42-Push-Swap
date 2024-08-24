@@ -21,22 +21,56 @@ void     args_checker(int ac)
     }
 }
 
-int    int_max(int ac, char *z)
+int int_max(char *z)
 {
-    int     i;
+    long result = 0;
+    int sign = 1;
+    int digit;
 
-    i = ft_atoi(z);
-    if (i > 2147483647)
+    // Skip leading whitespace
+    while (*z == ' ' || (*z >= 9 && *z <= 13))
+        z++;
+
+    // Check for sign
+    if (*z == '-' || *z == '+')
     {
-        ft_printf("ERROR : no argument should be higher than 2147483647 (int max)");
+        if (*z == '-')
+            sign = -1;
+        z++;
+    }
+
+    // Convert string to integer manually
+    while (*z)
+    {
+        if (*z < '0' || *z > '9')
+        {
+            ft_printf("ERROR: Invalid character in argument\n");
+            exit(EXIT_FAILURE);
+        }
+        digit = *z - '0';
+
+        // Check for overflow/underflow
+        if (result > (2147483647 - digit) / 10)
+        {
+            ft_printf("ERROR: Argument exceeds maximum int value\n");
+            exit(EXIT_FAILURE);
+        }
+        result = result * 10 + digit;
+
+        z++;
+    }
+
+    // Apply the sign
+    result *= sign;
+
+    // Check for final overflow/underflow
+    if (result > 2147483647 || result < -2147483648)
+    {
+        ft_printf("ERROR: Argument out of range\n");
         exit(EXIT_FAILURE);
     }
-    else if (i < -2147483648)
-    {
-        ft_printf("ERROR : no argument should be below -2147483648 (int min)");
-        exit(EXIT_FAILURE);
-    }
-    return (0);
+
+    return 0;
 }
 
 void    parsing(int ac, char **av)
@@ -45,7 +79,6 @@ void    parsing(int ac, char **av)
 
     i = 0;
     while (i < ac)
-        int_max(argv[i++]);
+        int_max(av[i++]);
     args_checker(ac);
 }
-

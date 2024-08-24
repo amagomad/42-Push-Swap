@@ -12,21 +12,22 @@
 
 #include "../../includes/push_swap.h"
 
-void    ra(t_pushswap* ps)
+void    ra(t_pushswap *ps)
 {
-    t_node  *current;
-    t_node  *first;
+    t_node *first;
+    t_node *last;
 
     if (ps == NULL || ps->a == NULL || ps->a->next == NULL)
-        return ;
+        return;
     first = ps->a;
-    current = ps->a;
-    while (current->next != NULL)
-        current = current->next;
+    last = ps->a;
+    while (last->next != NULL)
+        last = last->next;
     ps->a = first->next;
-    current->next = first;
+    last->next = first;
     first->next = NULL;
 }
+
 
 void    rb(t_pushswap* ps)
 {

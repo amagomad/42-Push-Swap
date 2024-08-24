@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-SRC = src/push_swap.c src/rules/ps_rules.c src/rules/ps_rules_2.c src/rules/ps_rules_3.c src/parsing.c src/ps_utils.c src/ps_utils_2.c src/sort_treetofive.c 
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address,undefined,integer
+SRC = src/push_swap.c src/rules/ps_rules.c src/rules/ps_rules_2.c src/rules/ps_rules_3.c src/error.c src/utils/ps_utils.c src/utils/ps_utils_2.c src/sort_treetofive.c 
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 

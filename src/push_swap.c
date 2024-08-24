@@ -14,12 +14,10 @@
 
 void    push_swap(int ac, t_pushswap *ps)
 {
-    if (ac - 1 == 3)
-        sort_three(ps);
-    else if (ac - 1 == 4)
-        sort_four(ps);
-    else if (ac - 1 == 5)
-        sort_five(ps);
+    if (ac - 1 < 6)
+        sort_small(ac, ps);
+    else if (ac - 1 > 5)
+        sort_with_selection(ps);
 }
 
 int     main(int ac, char **av)

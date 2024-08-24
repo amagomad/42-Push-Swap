@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int     find_min_position(t_node *a)
 {
@@ -36,13 +36,6 @@ int     find_min_position(t_node *a)
         i++;
     }
     return (pos);
-}
-
-int     ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
 }
 
 t_node      *new_node(int data)
@@ -97,4 +90,15 @@ void    add_node_end(t_node **head, int data)
     while (temp->next)
         temp = temp->next;
     temp->next = new;
+}
+
+void    print_list(t_node *head)
+{
+    t_node *current = head;
+    while (current != NULL)
+    {
+        printf("%d -> ", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
 }

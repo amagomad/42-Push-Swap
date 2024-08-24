@@ -10,17 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void    print_list(t_node *head)
+int get_stack_size(t_node *stack)
 {
-    t_node *current = head;
-    while (current != NULL)
+    int size = 0;
+    t_node *current = stack;
+
+    while (current)
     {
-        printf("%d -> ", current->data);
+        size++;
         current = current->next;
     }
-    printf("NULL\n");
+
+    return (size);
 }
 
 int	ft_atoi(const char *str)
@@ -47,4 +50,11 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (nb * sign);
+}
+
+int     ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

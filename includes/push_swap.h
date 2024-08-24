@@ -52,8 +52,8 @@ void    rrr(t_pushswap *ps);
 //parsing :
 
 void    args_checker(int ac);
-int     int_max(int ac, char *z)
-void    parsing(int ac);
+int     int_max(char *z);
+void    parsing(int ac, char **av);
 
 //sort :
 
@@ -63,7 +63,8 @@ void    sort_five(t_pushswap *ps);
 
 //algo :
 
-
+void    sort_with_selection(t_pushswap *ps);
+void    sort_small(int ac, t_pushswap *ps);
 
 //utils :
 
@@ -74,6 +75,7 @@ void        add_node_end(t_node **head, int data);
 void        print_list(t_node *head);
 t_node      *new_node(int data);
 t_pushswap  *init_pushswap(int ac, char **av);
+int         get_stack_size(t_node *stack);
 
 //main :
 
