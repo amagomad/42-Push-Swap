@@ -21,64 +21,22 @@ void     args_checker(int ac)
     }
 }
 
-int int_max(char *z)
+void    parsing(int ac, char **av, t_pushswap *ps)
 {
-    long result = 0;
-    int sign = 1;
-    int digit;
-
-    // Skip leading whitespace
-    while (*z == ' ' || (*z >= 9 && *z <= 13))
-        z++;
-
-    // Check for sign
-    if (*z == '-' || *z == '+')
-    {
-        if (*z == '-')
-            sign = -1;
-        z++;
-    }
-
-    // Convert string to integer manually
-    while (*z)
-    {
-        if (*z < '0' || *z > '9')
-        {
-            ft_printf("ERROR: Invalid character in argument\n");
-            exit(EXIT_FAILURE);
-        }
-        digit = *z - '0';
-
-        // Check for overflow/underflow
-        if (result > (2147483647 - digit) / 10)
-        {
-            ft_printf("ERROR: Argument exceeds maximum int value\n");
-            exit(EXIT_FAILURE);
-        }
-        result = result * 10 + digit;
-
-        z++;
-    }
-
-    // Apply the sign
-    result *= sign;
-
-    // Check for final overflow/underflow
-    if (result > 2147483647 || result < -2147483648)
-    {
-        ft_printf("ERROR: Argument out of range\n");
-        exit(EXIT_FAILURE);
-    }
-
-    return 0;
-}
-
-void    parsing(int ac, char **av)
-{
-    int     i;
-
-    i = 0;
+    int i;
+    int value;
+    
+    i = 1;
     while (i < ac)
-        int_max(av[i++]);
+    {
+        value = ft_atoi(av[i]);
+        if (contains_duplicate(ps->a, value))
+        {
+            ft_printf("ERROR: Duplicate values are not allowed\n");
+            exit(EXIT_FAILURE);
+        }
+        ft_atoi(av[i]);
+        i++;
+    }
     args_checker(ac);
 }

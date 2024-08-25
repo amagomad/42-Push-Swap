@@ -25,6 +25,7 @@ void	sa(t_pushswap *ps)
     tmp = first->data;
     first->data = second->data;
     second->data = tmp;
+    ft_printf("sa\n");
 }
 
 void    sb(t_pushswap* ps)
@@ -40,12 +41,14 @@ void    sb(t_pushswap* ps)
     tmp = first->data;
     first->data = second->data;
     second->data = tmp;
+    ft_printf("sb\n");
 }
 
 void    ss(t_pushswap *ps)
 {
     sa(ps);
     sb(ps);
+    ft_printf("ss\n");
 }
 
 void pa(t_pushswap* ps)
@@ -58,6 +61,7 @@ void pa(t_pushswap* ps)
     ps->b = first_b->next;
     first_b->next = ps->a;
     ps->a = first_b;
+    ft_printf("pa\n");
 }
 
 void    pb(t_pushswap *ps)
@@ -70,4 +74,5 @@ void    pb(t_pushswap *ps)
     ps->a = first_a->next;
     first_a->next = ps->b;
     ps->b = first_a;
+    ft_printf("pb\n");
 }

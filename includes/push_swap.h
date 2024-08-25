@@ -53,7 +53,7 @@ void    rrr(t_pushswap *ps);
 
 void    args_checker(int ac);
 int     int_max(char *z);
-void    parsing(int ac, char **av);
+void    parsing(int ac, char **av, t_pushswap *ps);
 
 //sort :
 
@@ -71,11 +71,13 @@ void    sort_small(int ac, t_pushswap *ps);
 int         find_min_position(t_node *a);
 int         ft_isdigit(int c);
 int         ft_atoi(const char *str);
+int         get_stack_size(t_node *stack);
+int         contains_duplicate(t_node *head, int value);
 void        add_node_end(t_node **head, int data);
 void        print_list(t_node *head);
+void        free_pushswap(t_pushswap *ps);
 t_node      *new_node(int data);
 t_pushswap  *init_pushswap(int ac, char **av);
-int         get_stack_size(t_node *stack);
 
 //main :
 

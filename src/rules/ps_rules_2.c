@@ -26,6 +26,7 @@ void    ra(t_pushswap *ps)
     ps->a = first->next;
     last->next = first;
     first->next = NULL;
+    ft_printf("ra\n");
 }
 
 
@@ -43,10 +44,12 @@ void    rb(t_pushswap* ps)
     ps->b = first->next;
     current->next = first;
     first->next = NULL;
+    ft_printf("rb\n");
 }
 
 void    rr(t_pushswap *ps)
 {
     ra(ps);
     rb(ps);
+    ft_printf("rr\n");
 }

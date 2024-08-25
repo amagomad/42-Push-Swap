@@ -98,7 +98,6 @@ void sort_with_selection(t_pushswap *ps)
 {
     int size;
     int min_pos;
-    int i;
 
     size = get_stack_size(ps->a);
     while (size > 0)
@@ -106,19 +105,17 @@ void sort_with_selection(t_pushswap *ps)
         min_pos = find_min_position(ps->a);
         if (min_pos <= size / 2)
         {
-            for (i = 0; i < min_pos; i++)
+            while (min_pos-- > 0)
                 ra(ps);
         }
         else
         {
-            for (i = 0; i < size - min_pos; i++)
+            while (min_pos++ < size)
                 rra(ps);
         }
         pb(ps);
         size--;
     }
     while (ps->b)
-    {
         pa(ps);
-    }
 }

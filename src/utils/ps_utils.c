@@ -50,32 +50,37 @@ t_node      *new_node(int data)
     return node;
 }
 
-t_pushswap  *init_pushswap(int ac, char **av)
+t_pushswap *init_pushswap(int ac, char **av)
 {
-    t_pushswap  *ps;
-    
-    ps = malloc(sizeof(t_pushswap));
+    t_pushswap *ps;
     int i;
-
-    if (!ps)
-        return NULL;
-    
-    ps->a = NULL;
-    ps->b = NULL;
+    int value;
 
     i = 1;
+    ps = (t_pushswap *)malloc(sizeof(t_pushswap));
+    if (!ps)
+        return NULL;
+    ps->a = NULL;
+    ps->b = NULL;
     while (i < ac)
     {
-        add_node_end(&ps->a, ft_atoi(av[i]));
+        value = ft_atoi(av[i]);
+        if (contains_duplicate(ps->a, value))
+        {
+            ft_printf("ERROR: Duplicate found\n");
+            free_pushswap(ps);
+            exit(EXIT_FAILURE);
+        }
+        add_node_end(&ps->a, value);
         i++;
     }
-
-    return ps;
+    return (ps);
 }
+
 
 void    add_node_end(t_node **head, int data)
 {
-    t_node  *new; 
+    t_node  *new;
     t_node  *temp;
 
     new = new_node(data);
@@ -100,5 +105,5 @@ void    print_list(t_node *head)
         printf("%d -> ", current->data);
         current = current->next;
     }
-    printf("NULL\n");
+    ft_printf("NULL\n");
 }

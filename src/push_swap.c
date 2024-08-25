@@ -29,22 +29,22 @@ int     main(int ac, char **av)
         ps = init_pushswap(ac, av);
         if (!ps || !ps->a)
         {
-            ft_printf("ERROR : Failed allocation");
+            ft_printf("ERROR : Failed allocation\n");
             exit(EXIT_FAILURE);
         }
-        printf("Initial state:\n");
-        printf("Stack A: ");
-        print_list(ps->a);
-        printf("Stack B: ");
-        print_list(ps->b);
+        // printf("Initial state:\n");
+        // printf("Stack A: ");
+        // print_list(ps->a);
+        // printf("Stack B: ");
+        // print_list(ps->b);
 
         push_swap(ac, ps);
 
-        printf("Final state:\n");
-        printf("Stack A: ");
-        print_list(ps->a);
-        printf("Stack B: ");
-        print_list(ps->b);
+        // printf("Final state:\n");
+        // printf("Stack A: ");
+        // print_list(ps->a);
+        // printf("Stack B: ");
+        // print_list(ps->b);
     }
     else
     {

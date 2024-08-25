@@ -30,6 +30,7 @@ void    rra(t_pushswap *ps)
         second_last->next = NULL;
     last->next = ps->a;
     ps->a = last;
+    ft_printf("rra\n");
 }
 
 
@@ -50,10 +51,12 @@ void    rrb(t_pushswap *ps)
     last->next = ps->b;
     ps->b = last;
     second_last->next = NULL;
+    ft_printf("rrb\n");
 }
 
 void    rrr(t_pushswap *ps)
 {
     rra(ps);
     rrb(ps);
+    ft_printf("rrr\n");
 }
