@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:00:59 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:37:42 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int			ft_atoi(const char *str);
 int			get_stack_size(t_node *stack);
 int			contains_duplicate(t_node *head, int value);
 int			atoi_stock(int result, int digit, int c);
-int			ft_strlen(const char *str);
+size_t		ft_strlen(const char *str);
 void		check_for_split(const char *str);
 void		ft_isdigit(int c);
 void		add_node_end(t_node **head, int data);
@@ -85,6 +85,7 @@ t_pushswap	*init_pushswap(int ac, char **av);
 size_t		ft_length(const char *s, char c);
 char		**ft_split(const char *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		**check_split(int ac, char **av);
 
 // index :
 

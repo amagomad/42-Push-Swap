@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:14:30 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:35:52 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int ac, char **av)
 {
 	t_pushswap	*ps;
 
+	if (ac == 2)
+	av = check_split(ac, av);
 	ps = init_pushswap(ac, av);
 	if (!ps || !ps->a)
 	{

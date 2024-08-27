@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:49:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:17:26 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:36:47 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,16 @@ void	free_pushswap(t_pushswap *ps)
 		}
 		free(ps);
 	}
+}
+char	**check_split(int ac, char **av)
+{
+	int		i;
+
+	i = ft_strlen(av[1]);
+	av = malloc(sizeof(char) * i + 1);
+	av = ft_split(av[1], ' ');
+	ac = 1;
+	while (av[ac])
+		ac++;
+	return (av);
 }
