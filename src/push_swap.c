@@ -12,44 +12,27 @@
 
 #include "../includes/push_swap.h"
 
-void    push_swap(int ac, t_pushswap *ps)
+void push_swap(int ac, t_pushswap *ps)
 {
     if (ac - 1 < 6)
         sort_small(ac, ps);
-    else if (ac - 1 > 5)
-        sort_with_selection(ps);
+    else if (ac - 1 > 5 && ac - 1 != 100 && ac - 1 != 500)
+        sort_therest(ps);
+    else if (ac - 1 == 100 || ac - 1 == 500)
+        algo(ps);
 }
 
 int     main(int ac, char **av)
 {
     t_pushswap *ps;
 
-    if (ac > 2)
+    args_checker(ac);
+    ps = init_pushswap(ac, av);
+    if (!ps || !ps->a)
     {
-        ps = init_pushswap(ac, av);
-        if (!ps || !ps->a)
-        {
-            ft_printf("ERROR : Failed allocation\n");
-            exit(EXIT_FAILURE);
-        }
-        // printf("Initial state:\n");
-        // printf("Stack A: ");
-        // print_list(ps->a);
-        // printf("Stack B: ");
-        // print_list(ps->b);
-
-        push_swap(ac, ps);
-
-        // printf("Final state:\n");
-        // printf("Stack A: ");
-        // print_list(ps->a);
-        // printf("Stack B: ");
-        // print_list(ps->b);
+        ft_printf("ERROR : Failed allocation\n");
+        exit(EXIT_FAILURE);
     }
-    else
-    {
-        printf("Error: At least 3 arguments are required.\n");
-        return (1);
-    }
-    return (0);
+    assign_index(ps, ac);
+    push_swap(ac, ps);
 }

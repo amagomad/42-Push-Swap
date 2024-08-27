@@ -23,13 +23,13 @@ int     find_min_position(t_node *a)
         return (-1);
     pos = 0;
     i = 0;
-    value = a->data;
+    value = a->index;
     current = a;
     while (current)
     {
-        if (current->data < value)
+        if (current->index < value)
         {
-            value = current->data;
+            value = current->index;
             pos = i;
         }
         current = current->next;
@@ -38,23 +38,12 @@ int     find_min_position(t_node *a)
     return (pos);
 }
 
-t_node      *new_node(int data)
+t_pushswap  *init_pushswap(int ac, char **av)
 {
-    t_node  *node;
-    
-    node = malloc(sizeof(t_node));
-    if (!node)
-        return NULL;
-    node->data = data;
-    node->next = NULL;
-    return node;
-}
-
-t_pushswap *init_pushswap(int ac, char **av)
-{
-    t_pushswap *ps;
-    int i;
-    int value;
+    t_pushswap      *ps;
+    int             i;
+    int             value;
+    int             check_dup;
 
     i = 1;
     ps = (t_pushswap *)malloc(sizeof(t_pushswap));
@@ -65,7 +54,8 @@ t_pushswap *init_pushswap(int ac, char **av)
     while (i < ac)
     {
         value = ft_atoi(av[i]);
-        if (contains_duplicate(ps->a, value))
+        check_dup = contains_duplicate(ps->a, value);
+        if (check_dup == 1)
         {
             ft_printf("ERROR: Duplicate found\n");
             free_pushswap(ps);
@@ -83,10 +73,13 @@ void    add_node_end(t_node **head, int data)
     t_node  *new;
     t_node  *temp;
 
-    new = new_node(data);
     temp = *head;
+    new = malloc(sizeof(t_node));
     if (!new)
         return ;
+    new->data = data;
+    new->index = -1;
+    new->next = NULL;
     if (!*head)
     {
         *head = new;
@@ -95,15 +88,40 @@ void    add_node_end(t_node **head, int data)
     while (temp->next)
         temp = temp->next;
     temp->next = new;
+    new->next = NULL;
 }
 
-void    print_list(t_node *head)
+void    assign_index(t_pushswap *ps, int ac)
 {
-    t_node *current = head;
-    while (current != NULL)
+    int     index;
+    int     end;
+    t_node  *current;
+
+    if (!ps || !ps->a)
+        return ;
+    end = 1;
+    current = ps->a;
+    while (end < ac)
     {
-        printf("%d -> ", current->data);
+        index = index_finder(ps, current->data);
+        current->index = index;
+        current = current->next;
+        end++;
+    }
+}
+
+int    index_finder(t_pushswap *ps, int nu)
+{
+    int         index;
+    t_node      *current;
+
+    index = 0;
+    current = ps->a;
+    while (current->next)
+    {
+        if (nu >= current->data)
+            index++;
         current = current->next;
     }
-    ft_printf("NULL\n");
+    return (index);
 }

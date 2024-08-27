@@ -12,10 +12,13 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define BUCKETS 5
+# define BUCKET_SIZE 20
 
 typedef struct s_node
 {
     int             data;
+    int             index;
     struct s_node   *next;
 } t_node;
 
@@ -60,14 +63,14 @@ void    parsing(int ac, char **av, t_pushswap *ps);
 void    sort_three(t_pushswap *ps);
 void    sort_four(t_pushswap *ps);
 void    sort_five(t_pushswap *ps);
-
-//algo :
-
-void    sort_with_selection(t_pushswap *ps);
 void    sort_small(int ac, t_pushswap *ps);
+void    sort_large(t_pushswap *ps);
+void    sort_therest(t_pushswap *ps);
+void    algo(t_pushswap *ps);
 
 //utils :
 
+int         calculate_bits_required(t_pushswap *ps);
 int         find_min_position(t_node *a);
 int         ft_isdigit(int c);
 int         ft_atoi(const char *str);
@@ -78,6 +81,11 @@ void        print_list(t_node *head);
 void        free_pushswap(t_pushswap *ps);
 t_node      *new_node(int data);
 t_pushswap  *init_pushswap(int ac, char **av);
+
+// index :
+
+void    assign_index(t_pushswap *ps, int ac);
+int    index_finder(t_pushswap *ps, int nu);
 
 //main :
 

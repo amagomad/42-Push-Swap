@@ -20,9 +20,9 @@ void	sort_three(t_pushswap *ps)
 
 	if (!ps || !ps->a || !ps->a->next || !ps->a->next->next)
 		return ;
-	first = ps->a->data;
-	second = ps->a->next->data;
-	third = ps->a->next->next->data;
+	first = ps->a->index;
+	second = ps->a->next->index;
+	third = ps->a->next->next->index;
 	if (first > second && second < third && first < third)
 		sa(ps);
 	else if (first > second && second > third && first > third)
@@ -61,8 +61,8 @@ void	sort_four(t_pushswap *ps)
 
 void	sort_five(t_pushswap *ps)
 {
-	int	min_pos;
-	int	i;
+	int		min_pos;
+	int		i;
 
 	i = 0;
 	while (i < 2)
@@ -94,7 +94,7 @@ void	sort_small(int ac, t_pushswap *ps)
         sort_five(ps);
 }
 
-void sort_with_selection(t_pushswap *ps)
+void sort_therest(t_pushswap *ps)
 {
     int size;
     int min_pos;

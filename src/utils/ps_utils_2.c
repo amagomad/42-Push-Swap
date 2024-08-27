@@ -78,7 +78,9 @@ int     ft_isdigit(int c)
 
 int contains_duplicate(t_node *head, int value)
 {
-    t_node *current = head;
+    t_node *current;
+
+    current = head;
     while (current)
     {
         if (current->data == value)
