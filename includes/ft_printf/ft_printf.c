@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 22:00:58 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/09 15:26:11 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:37:01 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ static int	print_format(va_list args, const char *format)
 
 int	ft_printf(const char *format, ...)
 {
+	va_list		args;
+	int			count;
+
 	if (format == NULL)
 		return (-1);
-	va_list	args;
-	int		count;
-
 	va_start(args, format);
 	count = print_format(args, format);
 	va_end(args);
