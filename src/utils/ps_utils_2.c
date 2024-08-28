@@ -94,15 +94,9 @@ void	free_pushswap(t_pushswap *ps)
 		free(ps);
 	}
 }
-char	**check_split(int ac, char **av)
+char	**check_split(char **av)
 {
-	int		i;
-
-	i = ft_strlen(av[1]);
-	av = malloc(sizeof(char) * i + 1);
-	av = ft_split(av[1], ' ');
-	ac = 1;
-	while (av[ac])
-		ac++;
+    if (av[1][0] == '"')
+	    av = ft_split(av[1], ' ');
 	return (av);
 }

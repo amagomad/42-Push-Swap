@@ -34,7 +34,7 @@ int	calculate_bits_required(t_pushswap *ps)
 	return (bit_count);
 }
 
-void	algo(t_pushswap *ps)
+void	algo(int ac, t_pushswap *ps)
 {
 	t_node	*current;
 	int		bit_position;
@@ -42,11 +42,15 @@ void	algo(t_pushswap *ps)
 	int		bits_required;
 	int		index;
 
-	current = ps->a;
+	if (ac - 1 <= 5)
+	{
+		sort_small(ac, ps);
+		return;
+	}
 	bit_position = 0;
-	element_count = get_stack_size(current);
+	element_count = get_stack_size(ps->a);
 	bits_required = calculate_bits_required(ps);
-	while (bit_position++ < bits_required)
+	while (bit_position < bits_required)
 	{
 		index = 0;
 		while (index < element_count)
@@ -60,5 +64,6 @@ void	algo(t_pushswap *ps)
 		}
 		while (get_stack_size(ps->b) > 0)
 			pa(ps);
+		bit_position++;
 	}
 }

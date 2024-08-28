@@ -98,9 +98,10 @@ void	assign_index(t_pushswap *ps, int ac)
 
 	if (!ps || !ps->a)
 		return ;
+
 	end = 1;
 	current = ps->a;
-	while (end < ac)
+	while (current && end < ac)
 	{
 		index = index_finder(ps, current->data);
 		current->index = index;
@@ -108,6 +109,7 @@ void	assign_index(t_pushswap *ps, int ac)
 		end++;
 	}
 }
+
 
 int	index_finder(t_pushswap *ps, int nu)
 {

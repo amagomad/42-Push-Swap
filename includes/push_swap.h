@@ -60,7 +60,7 @@ void		sort_five(t_pushswap *ps);
 void		sort_small(int ac, t_pushswap *ps);
 void		sort_large(t_pushswap *ps);
 void		sort_therest(t_pushswap *ps);
-void		algo(t_pushswap *ps);
+void	    algo(int ac, t_pushswap *ps);
 
 //utils :
 
@@ -71,7 +71,6 @@ int			get_stack_size(t_node *stack);
 int			contains_duplicate(t_node *head, int value);
 int			atoi_stock(int result, int digit, int c);
 size_t		ft_strlen(const char *str);
-void		check_for_split(const char *str);
 void		ft_isdigit(int c);
 void		add_node_end(t_node **head, int data);
 void		print_list(t_node *head);
@@ -85,7 +84,7 @@ t_pushswap	*init_pushswap(int ac, char **av);
 size_t		ft_length(const char *s, char c);
 char		**ft_split(const char *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		**check_split(int ac, char **av);
+char		**check_split(char **av);
 
 // index :
 

@@ -14,10 +14,10 @@
 
 void	push_swap(int ac, t_pushswap *ps)
 {
-	if (ac - 1 < 6 && ac > 2)
-		sort_small(ac, ps);
-	else if (ac - 1 > 5)
-		algo(ps);
+	if (ac > 2)
+		algo(ac, ps);
+    else
+        exit(EXIT_SUCCESS);
 }
 
 int	main(int ac, char **av)
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	t_pushswap	*ps;
 
 	if (ac == 2)
-	av = check_split(ac, av);
+	    av = check_split(av);
 	ps = init_pushswap(ac, av);
 	if (!ps || !ps->a)
 	{
