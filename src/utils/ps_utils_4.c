@@ -49,7 +49,7 @@ char	**ft_split(const char *s, char c)
 
 	if (!s)
 		return (NULL);
-	final = malloc(sizeof(char *) * (ft_length(s, c) + 1));
+	final = malloc(sizeof(char *) * (ft_strlen(s) + 1));
 	if (!final)
 		return (NULL);
 	i = 0;
@@ -99,4 +99,14 @@ void	free_split(char **av)
 	while (av[i++])
 		free(av[i]);
 	free(av);
+}
+
+int		print_av(int ac, char **s)
+{
+	int		i;
+
+	i = 1;
+	while (i < ac - 1)
+		ft_printf("argument number %i = %s", i, s[i]);
+	return (0);
 }

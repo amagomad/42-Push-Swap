@@ -86,6 +86,8 @@ char		**ft_split(const char *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**check_split(char **av);
 
+int		print_av(int ac, char **s);
+
 // index :
 
 void		assign_index(t_pushswap *ps, int ac);

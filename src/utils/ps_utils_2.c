@@ -96,7 +96,41 @@ void	free_pushswap(t_pushswap *ps)
 }
 char	**check_split(char **av)
 {
-    if (av[1][0] == '"')
-	    av = ft_split(av[1], ' ');
-	return (av);
+	char	**final;
+	int		i;
+	int		j;
+	int		arg;
+
+	arg = 1;
+	i = ft_strlen(av[1]);
+	if (i > 3)
+    {
+		final = malloc(sizeof(char *) * (i + 1));
+		if (!final)
+			return (NULL);
+		final[0] = "./push_swap";
+		i = 0;
+		while (av[1][i] != '\0')
+		{
+			while (av[1][i] == ' ' && av[1][i])
+				i++;
+			if (av[1][i] == '\0')
+				break;
+			j = 0;
+			while (av[1][i + j] && av[1][i + j] != ' ')
+				j++;
+			final[arg] = malloc(sizeof(char) * (j + 1));
+			if (!final[arg])
+				return (NULL);
+			j = 0;
+			while (av[1][i] && av[1][i] != ' ')
+				final[arg][j++] = av[1][i++];
+			final[arg][j] = '\0';
+			arg++;
+		}
+		final[arg] = NULL;
+	}
+	else
+		exit(EXIT_FAILURE);
+	return (final);
 }

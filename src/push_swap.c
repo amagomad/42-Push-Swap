@@ -23,9 +23,16 @@ void	push_swap(int ac, t_pushswap *ps)
 int	main(int ac, char **av)
 {
 	t_pushswap	*ps;
+    int         i;
 
-	if (ac == 2)
-	    av = check_split(av);
+    if (ac == 2)
+	{
+		av = check_split(av);
+		ac = 0;
+		i = 0;
+		while (av[i++])
+			ac++;
+	}
 	ps = init_pushswap(ac, av);
 	if (!ps || !ps->a)
 	{
@@ -35,3 +42,4 @@ int	main(int ac, char **av)
 	assign_index(ps, ac);
 	push_swap(ac, ps);
 }
+
