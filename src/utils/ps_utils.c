@@ -98,7 +98,6 @@ void	assign_index(t_pushswap *ps, int ac)
 
 	if (!ps || !ps->a)
 		return ;
-
 	end = 1;
 	current = ps->a;
 	while (current && end < ac)

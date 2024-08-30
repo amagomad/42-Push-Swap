@@ -47,6 +47,7 @@ void	algo(int ac, t_pushswap *ps)
 		sort_small(ac, ps);
 		return;
 	}
+	check_order(ps);
 	bit_position = 0;
 	element_count = get_stack_size(ps->a);
 	bits_required = calculate_bits_required(ps);

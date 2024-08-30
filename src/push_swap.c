@@ -34,12 +34,14 @@ int	main(int ac, char **av)
 			ac++;
 	}
 	ps = init_pushswap(ac, av);
+	if (ac < 3)
+		exit(EXIT_FAILURE);
 	if (!ps || !ps->a)
 	{
-		ft_printf("ERROR : Failed allocation\n");
+		ft_printf("ERROR : Allocation failed");
 		exit(EXIT_FAILURE);
 	}
 	assign_index(ps, ac);
 	push_swap(ac, ps);
+	free_split(av);
 }
-
