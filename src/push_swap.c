@@ -43,5 +43,4 @@ int	main(int ac, char **av)
 	}
 	assign_index(ps, ac);
 	push_swap(ac, ps);
-	free_split(av);
 }
