@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 16:28:31 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 19:01:24 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char		**allocate_final_array(int size);
 char		*allocate_word(const char *av, int i, int j);
 void		fill_final_array(char **final, const char *av, int *i, int *arg);
 int			get_sign(const char **str);
-long int	convert_to_number(const char **str, int sign);
+long int	convert_to_number(const char **str);
 
 // index :
 

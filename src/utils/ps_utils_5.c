@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:46:06 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 18:58:01 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 19:01:14 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	fill_final_array(char **final, const char *av, int *i, int *arg)
 	final[*arg] = NULL;
 }
 
-long int	convert_to_number(const char **str, int sign)
+long int	convert_to_number(const char **str)
 {
 	long int	result;
 
@@ -75,8 +75,7 @@ long int	convert_to_number(const char **str, int sign)
 	while (**str >= '0' && **str <= '9')
 	{
 		result = result * 10 + (**str - '0');
-		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
-			return (-1);
+		range_check(result);
 		(*str)++;
 	}
 	if (**str != '\0' && **str != ' ')
