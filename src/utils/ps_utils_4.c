@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 17:24:33 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:27:39 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:38:07 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,56 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	free_split(char **av)
+void	free_split(char **split)
 {
 	int		i;
 
-	i = 0;
-	while (av[i++])
-		free(av[i]);
-	free(av);
+	i = 1;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+void	execute_radix_pass(t_pushswap *ps, int bit_position, int element_count)
+{
+	int		index;
+	t_node	*current;
+
+	index = 0;
+	while (index < element_count)
+	{
+		current = ps->a;
+		if (((current->index >> bit_position) & 1) == 1)
+			ra(ps);
+		else
+			pb(ps);
+		index++;
+	}
+	while (get_stack_size(ps->b) > 0)
+		pa(ps);
+}
+
+void	sort_large_stack(t_pushswap *ps, int bits_required, int element_count)
+{
+	int		bit_position;
+
+	bit_position = 0;
+	while (bit_position < bits_required)
+	{
+		execute_radix_pass(ps, bit_position, element_count);
+		bit_position++;
+	}
+}
+
+void	check_order_or_sort_small(int ac, t_pushswap *ps)
+{
+	if (ac - 1 <= 5)
+	{
+		sort_small(ac, ps);
+		return ;
+	}
+	check_order(ps);
 }

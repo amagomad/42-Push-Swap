@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:37:29 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:19:16 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:32:19 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	sort_three(t_pushswap *ps)
 	else if (first < second && second > third && first > third)
 		rra(ps);
 }
-
 
 void	sort_four(t_pushswap *ps)
 {
@@ -101,4 +100,5 @@ void	sort_small(int ac, t_pushswap *ps)
 		sort_four(ps);
 	else if (ac - 1 == 5)
 		sort_five(ps);
+	free_pushswap(ps);
 }

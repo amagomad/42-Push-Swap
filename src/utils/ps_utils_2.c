@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:49:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:36:47 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:27:08 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,23 @@ int	get_stack_size(t_node *stack)
 	return (size);
 }
 
+#include <limits.h>
+
 int	ft_atoi(const char *str)
 {
-	long int	result;
 	int			sign;
-	int			digit;
-	int			i;
+	long int	result;
 
-	i = 0;
-	result = 0;
-	sign = 1;
-	digit = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	sign = get_sign(&str);
+	result = convert_to_number(&str, sign);
+	if (result == -1)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		ft_printf("ERROR : Integer overflow or underflow\n");
+		return (-1);
 	}
-	while (str[i])
-	{
-		result = atoi_stock(result, digit, str[i]);
-		i++;
-	}
-	range_check(result);
-	result *= sign;
-	return ((int)result);
+	return ((int)(result * sign));
 }
+
 
 int	contains_duplicate(t_node *head, int value)
 {
@@ -94,41 +83,22 @@ void	free_pushswap(t_pushswap *ps)
 		free(ps);
 	}
 }
+
 char	**check_split(char **av)
 {
 	char	**final;
 	int		i;
-	int		j;
 	int		arg;
 
 	arg = 1;
 	i = ft_strlen(av[1]);
-	if (i > 3)
-    {
-		final = malloc(sizeof(char *) * (i + 1));
+	if (i >= 3)
+	{
+		final = allocate_final_array(i);
 		if (!final)
 			return (NULL);
-		final[0] = "./push_swap";
 		i = 0;
-		while (av[1][i] != '\0')
-		{
-			while (av[1][i] == ' ' && av[1][i])
-				i++;
-			if (av[1][i] == '\0')
-				break;
-			j = 0;
-			while (av[1][i + j] && av[1][i + j] != ' ')
-				j++;
-			final[arg] = malloc(sizeof(char) * (j + 1));
-			if (!final[arg])
-				return (NULL);
-			j = 0;
-			while (av[1][i] && av[1][i] != ' ')
-				final[arg][j++] = av[1][i++];
-			final[arg][j] = '\0';
-			arg++;
-		}
-		final[arg] = NULL;
+		fill_final_array(final, av[1], &i, &arg);
 	}
 	else
 		exit(EXIT_FAILURE);

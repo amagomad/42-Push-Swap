@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:15:11 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:17:39 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:37:45 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_order(t_pushswap *ps)
 	while (current != NULL)
 	{
 		if (prev->data > current->data)
-			return;
+			return ;
 		prev = current;
 		current = current->next;
 	}

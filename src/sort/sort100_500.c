@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 09:44:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:18:31 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:54:31 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,35 +36,17 @@ int	calculate_bits_required(t_pushswap *ps)
 
 void	algo(int ac, t_pushswap *ps)
 {
-	t_node	*current;
-	int		bit_position;
 	int		element_count;
 	int		bits_required;
-	int		index;
 
 	if (ac - 1 <= 5)
 	{
 		sort_small(ac, ps);
-		return;
+		return ;
 	}
 	check_order(ps);
-	bit_position = 0;
 	element_count = get_stack_size(ps->a);
 	bits_required = calculate_bits_required(ps);
-	while (bit_position < bits_required)
-	{
-		index = 0;
-		while (index < element_count)
-		{
-			current = ps->a;
-			if (((current->index >> bit_position) & 1) == 1)
-				ra(ps);
-			else
-				pb(ps);
-			index++;
-		}
-		while (get_stack_size(ps->b) > 0)
-			pa(ps);
-		bit_position++;
-	}
+	sort_large_stack(ps, bits_required, element_count);
+	free_pushswap(ps);
 }

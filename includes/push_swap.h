@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:37:42 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:28:31 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <signal.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -54,13 +55,14 @@ void		rrr(t_pushswap *ps);
 
 //sort :
 
+void		sort_two(t_pushswap *ps);
 void		sort_three(t_pushswap *ps);
 void		sort_four(t_pushswap *ps);
 void		sort_five(t_pushswap *ps);
 void		sort_small(int ac, t_pushswap *ps);
 void		sort_large(t_pushswap *ps);
 void		sort_therest(t_pushswap *ps);
-void	    algo(int ac, t_pushswap *ps);
+void		algo(int ac, t_pushswap *ps);
 
 //utils :
 
@@ -85,8 +87,17 @@ size_t		ft_length(const char *s, char c);
 char		**ft_split(const char *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**check_split(char **av);
-
-int		print_av(int ac, char **s);
+int			print_av(int ac, char **s);
+void		execute_radix_pass(t_pushswap *ps, int bit_position,
+				int element_count);
+void		sort_large_stack(t_pushswap *ps, int bits_required,
+				int element_count);
+void		check_order_or_sort_small(int ac, t_pushswap *ps);
+char		**allocate_final_array(int size);
+char		*allocate_word(const char *av, int i, int j);
+void		fill_final_array(char **final, const char *av, int *i, int *arg);
+int			get_sign(const char **str);
+long int	convert_to_number(const char **str, int sign);
 
 // index :
 

@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 13:55:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/08/27 17:17:09 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:37:54 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ void	assign_index(t_pushswap *ps, int ac)
 		end++;
 	}
 }
-
 
 int	index_finder(t_pushswap *ps, int nu)
 {
