@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:46:06 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 19:01:14 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 19:04:14 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,11 @@ int	get_sign(const char **str)
 		if (!(**str >= '0' && **str <= '9'))
 		{
 			ft_printf("ERROR : No number detected after - sign\n");
+			exit(EXIT_FAILURE);
+		}
+		if(**str == '0')
+		{
+			ft_printf("ERROR : Why would you put a 0 after a - sign ?");
 			exit(EXIT_FAILURE);
 		}
 	}

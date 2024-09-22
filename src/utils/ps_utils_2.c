@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:49:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 18:57:41 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 19:03:38 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 	long int	result;
 
 	sign = get_sign(&str);
-	result = convert_to_number(&str, sign);
+	result = convert_to_number(&str);
 	if (result == -1)
 	{
 		ft_printf("ERROR : Integer overflow or underflow\n");
