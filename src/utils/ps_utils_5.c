@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:46:06 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 16:29:16 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 18:58:01 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ long int	convert_to_number(const char **str, int sign)
 	{
 		result = result * 10 + (**str - '0');
 		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
-			return -1;
+			return (-1);
 		(*str)++;
 	}
 	if (**str != '\0' && **str != ' ')

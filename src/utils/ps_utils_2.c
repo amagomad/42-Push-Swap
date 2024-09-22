@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:49:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 16:27:08 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/22 18:57:41 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int	get_stack_size(t_node *stack)
 	return (size);
 }
 
-#include <limits.h>
-
 int	ft_atoi(const char *str)
 {
 	int			sign;
@@ -43,7 +41,6 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(result * sign));
 }
-
 
 int	contains_duplicate(t_node *head, int value)
 {
