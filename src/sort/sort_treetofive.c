@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:37:29 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 15:32:19 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 17:39:01 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,12 @@ void	sort_five(t_pushswap *ps)
 	while (i < 2)
 	{
 		min_pos = find_min_position(ps->a);
-		if (min_pos > 0)
-		{
-			while (min_pos > 0)
-			{
-				ra(ps);
-				min_pos--;
-			}
-		}
+		handle_for_five(ps, min_pos);
 		pb(ps);
 		i++;
 	}
 	sort_three(ps);
+	check_b(ps);
 	pa(ps);
 	pa(ps);
 }

@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:49:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/23 14:23:41 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:44:27 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,8 @@ int	ft_atoi(const char *str, int *error)
 	number = 0;
 	sign = 1;
 	*error = 0;
-	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	if (str[i] < '0' || str[i] > '9')
+	skip_whitespace(&str, &i);
+	if (handle_sign(&str, &i, &sign))
 	{
 		*error = 1;
 		return (0);

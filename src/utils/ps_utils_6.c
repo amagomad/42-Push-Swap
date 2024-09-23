@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:29:36 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/23 14:25:33 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:33:01 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,9 @@ void	check_characters(t_pushswap *ps, char **av)
 		i = 0;
 		while (av[j][i])
 		{
-			if (av[j][i] >= '0' && av[j][i] <= '9')
-				i++;
-			else if (av[j][i] == '-' || av[j][i] == '+')
-			{
-				if (i > 0 && av[j][i - 1] != ' ')
-					error_handler(ps);
-				if (av[j][i + 1] == '\0' || !(av[j][i + 1] >= '0'
-					&& av[j][i + 1] <= '9'))
-					error_handler(ps);
-				i++;
-			}
-			else if (av[j][i] == ' ')
-				i++;
-			else
+			if (!is_valid(av[j][i], &i))
 				error_handler(ps);
+			i++;
 		}
 		j++;
 	}
@@ -76,4 +64,11 @@ void	characters_arg(char *str)
 			exit(EXIT_FAILURE);
 		}
 	}
+}
+
+void	skip_whitespace(const char **str, long *i)
+{
+	while ((*str)[*i] && ((*str)[*i] == ' '
+		|| ((*str)[*i] >= 9 && (*str)[*i] <= 13)))
+		(*i)++;
 }

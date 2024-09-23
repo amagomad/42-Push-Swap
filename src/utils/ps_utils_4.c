@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 17:24:33 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 15:38:07 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 16:44:49 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,4 @@ void	sort_large_stack(t_pushswap *ps, int bits_required, int element_count)
 		execute_radix_pass(ps, bit_position, element_count);
 		bit_position++;
 	}
-}
-
-void	check_order_or_sort_small(int ac, t_pushswap *ps)
-{
-	if (ac - 1 <= 5)
-	{
-		sort_small(ac, ps);
-		return ;
-	}
-	check_order(ps);
 }

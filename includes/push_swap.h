@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/23 14:10:12 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 17:31:03 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void		execute_radix_pass(t_pushswap *ps, int bit_position,
 				int element_count);
 void		sort_large_stack(t_pushswap *ps, int bits_required,
 				int element_count);
-void		check_order_or_sort_small(int ac, t_pushswap *ps);
 char		**allocate_final_array(int size);
 char		*allocate_word(const char *av, int i, int j);
 void		fill_final_array(char **final, const char *av, int *i, int *arg);
@@ -90,6 +89,11 @@ void		check_characters(t_pushswap *ps, char **av);
 void		error_handler(t_pushswap *ps);
 int			check_limits(long number, int sign);
 void		characters_arg(char *str);
+int			is_valid(char c, int *i);
+void		skip_whitespace(const char **str, long *i);
+int			handle_sign(const char **str, long *i, int *sign);
+void		handle_for_five(t_pushswap *ps, int min_pos);
+void		check_b(t_pushswap *ps);
 
 // index :
 
