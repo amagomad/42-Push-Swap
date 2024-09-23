@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:13:56 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 15:31:55 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:10:08 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ int	main(int ac, char **av)
 	int			i;
 
 	i = 0;
+	if (ac == 1)
+		exit(EXIT_SUCCESS);
 	if (ac == 2)
 	{
+		characters_arg(av[1]);
 		av = check_split(av);
 		ac = 0;
-		i = 0;
 		while (av[i++])
 			ac++;
 	}
+	if (ac > 1)
+		check_characters(NULL, av);
 	ps = init_pushswap(ac, av);
+	if (!ps || !ps->a)
+		error_handler(ps);
 	if (ac < 3)
 		exit(EXIT_FAILURE);
-	if (!ps || !ps->a)
-	{
-		ft_printf("ERROR : Allocation failed");
-		free_split(av);
-		exit(EXIT_FAILURE);
-	}
 	assign_index(ps, ac);
 	push_swap(ac, ps);
 	if (i > 0)

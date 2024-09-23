@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:11:51 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 19:01:24 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:10:12 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,34 +60,22 @@ void		sort_three(t_pushswap *ps);
 void		sort_four(t_pushswap *ps);
 void		sort_five(t_pushswap *ps);
 void		sort_small(int ac, t_pushswap *ps);
-void		sort_large(t_pushswap *ps);
-void		sort_therest(t_pushswap *ps);
 void		algo(int ac, t_pushswap *ps);
 
 //utils :
 
 int			calculate_bits_required(t_pushswap *ps);
 int			find_min_position(t_node *a);
-int			ft_atoi(const char *str);
+int			ft_atoi(const char *str, int *error);
 int			get_stack_size(t_node *stack);
 int			contains_duplicate(t_node *head, int value);
-int			atoi_stock(int result, int digit, int c);
 size_t		ft_strlen(const char *str);
-void		ft_isdigit(int c);
 void		add_node_end(t_node **head, int data);
-void		print_list(t_node *head);
 void		free_pushswap(t_pushswap *ps);
-void		range_check(long int a);
-void		int_value(int result, int digit);
 void		check_order(t_pushswap *ps);
 void		free_split(char **av);
-t_node		*new_node(int data);
 t_pushswap	*init_pushswap(int ac, char **av);
-size_t		ft_length(const char *s, char c);
-char		**ft_split(const char *s, char c);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		**check_split(char **av);
-int			print_av(int ac, char **s);
 void		execute_radix_pass(t_pushswap *ps, int bit_position,
 				int element_count);
 void		sort_large_stack(t_pushswap *ps, int bits_required,
@@ -98,12 +86,15 @@ char		*allocate_word(const char *av, int i, int j);
 void		fill_final_array(char **final, const char *av, int *i, int *arg);
 int			get_sign(const char **str);
 long int	convert_to_number(const char **str);
+void		check_characters(t_pushswap *ps, char **av);
+void		error_handler(t_pushswap *ps);
+int			check_limits(long number, int sign);
+void		characters_arg(char *str);
 
 // index :
 
 void		assign_index(t_pushswap *ps, int ac);
 int			index_finder(t_pushswap *ps, int nu);
-
 //main :
 
 void		push_swap(int ac, t_pushswap *ps);

@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 13:55:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 15:37:54 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:50:58 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_pushswap	*init_pushswap(int ac, char **av)
 	int			i;
 	int			value;
 	int			check_dup;
+	int			error;
 
 	i = 1;
 	ps = (t_pushswap *)malloc(sizeof(t_pushswap));
@@ -53,14 +54,10 @@ t_pushswap	*init_pushswap(int ac, char **av)
 	ps->b = NULL;
 	while (i < ac)
 	{
-		value = ft_atoi(av[i]);
+		value = ft_atoi(av[i], &error);
 		check_dup = contains_duplicate(ps->a, value);
-		if (check_dup == 1)
-		{
-			ft_printf("ERROR: Duplicate found\n");
-			free_pushswap(ps);
-			exit(EXIT_FAILURE);
-		}
+		if (check_dup == 1 || error == 1)
+			error_handler(ps);
 		add_node_end(&ps->a, value);
 		i++;
 	}

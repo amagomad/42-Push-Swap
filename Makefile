@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-SRC = src/push_swap.c src/rules/ps_rules.c src/rules/ps_rules_2.c src/rules/ps_rules_3.c src/utils/ps_utils.c src/utils/ps_utils_2.c src/utils/ps_utils_3.c src/utils/ps_utils_4.c src/utils/ps_utils_5.c src/sort/sort_treetofive.c src/sort/sort100_500.c
+SRC = src/push_swap.c src/rules/ps_rules.c src/rules/ps_rules_2.c src/rules/ps_rules_3.c src/utils/ps_utils.c src/utils/ps_utils_2.c src/utils/ps_utils_3.c src/utils/ps_utils_4.c src/utils/ps_utils_5.c src/utils/ps_utils_6.c src/sort/sort_treetofive.c src/sort/sort100_500.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 

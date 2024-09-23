@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:46:06 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 19:04:14 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:45:33 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,44 +67,3 @@ void	fill_final_array(char **final, const char *av, int *i, int *arg)
 	final[*arg] = NULL;
 }
 
-long int	convert_to_number(const char **str)
-{
-	long int	result;
-
-	result = 0;
-	while (**str >= '0' && **str <= '9')
-	{
-		result = result * 10 + (**str - '0');
-		range_check(result);
-		(*str)++;
-	}
-	if (**str != '\0' && **str != ' ')
-		return (-1);
-	return (result);
-}
-
-int	get_sign(const char **str)
-{
-	int		sign;
-
-	sign = 1;
-	while (**str == ' ' || (**str >= 9 && **str <= 13))
-		(*str)++;
-	if (**str == '-' || **str == '+')
-	{
-		if (**str == '-')
-			sign = -1;
-		(*str)++;
-		if (!(**str >= '0' && **str <= '9'))
-		{
-			ft_printf("ERROR : No number detected after - sign\n");
-			exit(EXIT_FAILURE);
-		}
-		if(**str == '0')
-		{
-			ft_printf("ERROR : Why would you put a 0 after a - sign ?");
-			exit(EXIT_FAILURE);
-		}
-	}
-	return (sign);
-}

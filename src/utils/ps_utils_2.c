@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:49:59 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/22 19:03:38 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:13:44 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,39 @@ int	get_stack_size(t_node *stack)
 	return (size);
 }
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str, int *error)
 {
-	int			sign;
-	long int	result;
+	long	i;
+	long	number;
+	int		sign;
 
-	sign = get_sign(&str);
-	result = convert_to_number(&str);
-	if (result == -1)
+	i = 0;
+	number = 0;
+	sign = 1;
+	*error = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		ft_printf("ERROR : Integer overflow or underflow\n");
-		return (-1);
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	return ((int)(result * sign));
+	if (str[i] < '0' || str[i] > '9')
+	{
+		*error = 1;
+		return (0);
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = (number * 10) + (str[i] - '0');
+		i++;
+	}
+	if (check_limits(number, sign))
+		*error = 1;
+	return (number * sign);
 }
+
 
 int	contains_duplicate(t_node *head, int value)
 {
@@ -92,12 +111,10 @@ char	**check_split(char **av)
 	if (i >= 3)
 	{
 		final = allocate_final_array(i);
-		if (!final)
-			return (NULL);
 		i = 0;
 		fill_final_array(final, av[1], &i, &arg);
 	}
 	else
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	return (final);
 }
