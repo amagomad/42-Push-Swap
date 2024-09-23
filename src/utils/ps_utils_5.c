@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:46:06 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/23 13:45:33 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:23:47 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,3 @@ void	fill_final_array(char **final, const char *av, int *i, int *arg)
 	}
 	final[*arg] = NULL;
 }
-

@@ -6,7 +6,7 @@
 /*   By: amagomad <amagomad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:29:36 by amagomad          #+#    #+#             */
-/*   Updated: 2024/09/23 14:10:54 by amagomad         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:25:33 by amagomad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	check_characters(t_pushswap *ps, char **av)
 			{
 				if (i > 0 && av[j][i - 1] != ' ')
 					error_handler(ps);
-				if (av[j][i + 1] == '\0' || !(av[j][i + 1] >= '0' && av[j][i + 1] <= '9'))
+				if (av[j][i + 1] == '\0' || !(av[j][i + 1] >= '0'
+					&& av[j][i + 1] <= '9'))
 					error_handler(ps);
 				i++;
 			}
@@ -44,11 +45,11 @@ void	check_characters(t_pushswap *ps, char **av)
 
 int	check_limits(long number, int sign)
 {
-    if (sign == 1 && number > INT_MAX)
-        return 1;
-    if (sign == -1 && -number < INT_MIN)
-        return 1;
-    return 0;
+	if (sign == 1 && number > INT_MAX)
+		return (1);
+	if (sign == -1 && - number < INT_MIN)
+		return (1);
+	return (0);
 }
 
 void	error_handler(t_pushswap *ps)
